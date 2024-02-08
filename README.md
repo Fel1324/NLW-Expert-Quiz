@@ -22,9 +22,7 @@
 
 <h2 id="img">🖥️ Imagem do projeto</h2>
 
-<p align="center">
-  <img src=".github/preview.png" alt="Imagem do projeto" width="80%">
-</p>
+<img src=".github/preview.png" alt="Imagem do projeto" width="80%">
 
 <br>
 
