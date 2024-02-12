@@ -93,6 +93,7 @@ const perguntas = [
 
 const quiz = document.querySelector("#quiz");
 const template = document.querySelector("template");
+const acertos = document.querySelector("#acertos");
 
 const corretas = new Set();
 const totalDePerguntas = perguntas.length;
@@ -105,7 +106,7 @@ for(const item of perguntas){
 
   for(let resposta of item.respostas){
     const dt = quizItem.querySelector("dl dt").cloneNode(true);
-    dt.querySelector("span").textContent = resposta;
+    dt.querySelector("label").textContent = resposta;
     dt.querySelector("input").setAttribute("name", `pergunta-${perguntas.indexOf(item)}`);
     dt.querySelector("input").value = item.respostas.indexOf(resposta);
 
@@ -113,8 +114,10 @@ for(const item of perguntas){
       const estaCorreta = event.target.value == item.correta;
 
       corretas.delete(item);
+      acertos.style.backgroundColor = "#E63535";
       if(estaCorreta){
         corretas.add(item);
+        acertos.style.backgroundColor = "#A3E635";
       }
       mostrarTotal.textContent = `${corretas.size} de ${totalDePerguntas}`;
     };
